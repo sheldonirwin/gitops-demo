@@ -1,4 +1,4 @@
 - sshPrivateKeySecret:
     key: sshPrivateKey
-    name: private-github
+    name: github-sheldonirwin
   url: git@github.com:sheldonirwin/gitops-demo.git

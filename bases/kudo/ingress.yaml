@@ -7,7 +7,7 @@ metadata:
   name: nginx-ingress
 spec:
   rules:
-    - host: nginx.kudo.co
+    - host: kudo.co
       http:
         paths:
           - backend:
@@ -16,4 +16,4 @@ spec:
           - backend:
               serviceName: nginx-svc
               servicePort: 80
-            path: /hello-nginx
+            path: /hello-kudo

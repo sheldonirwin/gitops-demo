@@ -22,7 +22,8 @@ spec:
 
   # Destination cluster and namespace to deploy the application
   destination:
-    server: https://kubernetes.default.svc
+    #server: https://kubernetes.default.svc
+    server: https://kudo.co
     namespace: kudo
     #namespace: default
     #server: https://kudo.co

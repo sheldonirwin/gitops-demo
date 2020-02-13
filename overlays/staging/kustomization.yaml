@@ -1,5 +1,5 @@
 bases:
-  - ../../bases/nginx
+  - ../../bases/kudo
 
 namespace: kudo
 

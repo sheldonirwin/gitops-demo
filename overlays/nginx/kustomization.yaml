@@ -1,0 +1,6 @@
+bases:
+  - ../../bases/nginx
+
+namespace: nginx
+
+namePrefix: nginx-

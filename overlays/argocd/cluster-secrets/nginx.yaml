@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nginx-cluster-secret
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+type: Opaque
+stringData:
+  name: nginx.co
+  server: https://192.168.39.112:8443 #https://nginx.kudo.co:8443
+  config: |
+    {
+      "username": "nginx",
+      "password": "nginx",
+      "tlsClientConfig": {
+        "insecure": true
+      }
+    }
