@@ -18,7 +18,7 @@ spec:
     #repoURL: https://github.com/sheldonirwin/argocd-example-apps.git
     repoURL: https://github.com/sheldonirwin/gitops-demo.git
     targetRevision: HEAD
-    path: kudo/staging
+    path: overlays/staging
 
   # Destination cluster and namespace to deploy the application
   destination:
