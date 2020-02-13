@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    #cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    #kubernetes.io/tls-acme: "true"
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    #nginx.ingress.kubernetes.io/configuration-snippet: |
+    #  rewrite /first-app/(.*) $1 break;
+    #  rewrite /secondary-app/(.*) /$1 break;
+  name: argocd-server-ingress
+  namespace: argocd
+spec:
+  tls:
+    - hosts:
+        - argocd.kudo.co
+      secretName: argocd-secret
+  rules:
+    - host: argocd.kudo.co
+      http:
+        paths:
+          - backend:
+              serviceName: argocd-server
+              servicePort: http
+            path: /

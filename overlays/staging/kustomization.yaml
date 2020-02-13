@@ -1,0 +1,6 @@
+bases:
+  - ../../bases/nginx
+
+namespace: kudo
+
+namePrefix: kudo-

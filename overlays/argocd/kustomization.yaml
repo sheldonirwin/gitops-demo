@@ -1,0 +1,28 @@
+
+bases:
+  - ../../bases/argocd
+
+resources:
+  #- ingress.yaml
+  - kudo-application.yaml
+  #- nginx-ingress-configmap.yaml  # Todo - transform this into a configMapGenerator with *merge*
+
+namespace: argocd
+
+#patchesStrategicMerge:
+  #- patch-argocd-server.yaml
+
+#configMapGenerator:
+#  - name: argocd-cm
+#    # behavior: merge
+#    behavior: replace
+#    files:
+#      - repositories=repositories.yaml
+#
+#secretGenerator:
+#  - name: private-github
+#    files:
+#      - sshPrivateKey=key/id_rsa_argocd
+
+generatorOptions:
+  disableNameSuffixHash: true

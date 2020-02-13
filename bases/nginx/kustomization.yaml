@@ -1,0 +1,10 @@
+#bases:
+#  - ../install
+
+resources:
+  - ingress.yaml
+  - service.yaml
+  - deployment.yaml
+
+#generatorOptions:
+#  disableNameSuffixHash: true
