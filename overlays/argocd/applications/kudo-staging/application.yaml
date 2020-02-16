@@ -1,36 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kudo
-  namespace: argocd  # Add application specifications to the argocd namespace
-  # Add a this finalizer ONLY if you want these to cascade delete.
-  # finalizers:
-  #   - resources-finalizer.argocd.argoproj.io
+  name: kudo-app
+  namespace: argocd
 spec:
-  # The project the application belongs to.
   project: default
-
-  syncPolicy:
-    automated: {}
 
   # Source of the application manifests
   source:
-    #repoURL: https://github.com/sheldonirwin/argocd-example-apps.git
     repoURL: https://github.com/sheldonirwin/gitops-demo.git
     targetRevision: HEAD
     path: overlays/staging
 
   # Destination cluster and namespace to deploy the application
   destination:
-    #server: https://kubernetes.default.svc
-    server: https://kudo.co
-    namespace: kudo
-    #namespace: default
-    #server: https://kudo.co
-    #namespace: kudo
+    server: https://kubernetes.default.svc
+    namespace: kudo-staging
 
   # Sync policy
-  #syncPolicy:
+  syncPolicy:
+    automated: {}
   #  automated:
   #    prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
   #    selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).

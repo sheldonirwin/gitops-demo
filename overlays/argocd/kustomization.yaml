@@ -3,27 +3,28 @@ bases:
   - ../../bases/argocd
 
 resources:
-  - applications/kudo.yaml
-  - applications/nginx.yaml
-  - cluster-secrets/kudo.yaml
-  - cluster-secrets/nginx.yaml
+  - applications/kudo-staging/application.yaml
+  #- applications/kudo-staging/cluster-secret.yaml
+  - applications/nginx/application.yaml
+  #- applications/nginx/cluster-secret.yaml
 
 namespace: argocd
 
-#patchesStrategicMerge:
+patchesStrategicMerge:
+  - secrets/admin-password.yaml
   #- patch-argocd-server.yaml
 
-configMapGenerator:
-  - name: argocd-cm
-    # behavior: merge
-    behavior: replace
-    files:
-      - repositories=repositories/github-sheldonirwin.yaml
-
-secretGenerator:
-  - name: github-sheldonirwin
-    files:
-      - sshPrivateKey=key/id_rsa_argocd
+#configMapGenerator:
+#  - name: argocd-cm
+#    # behavior: merge
+#    behavior: replace
+#    files:
+#      - repositories=repositories/github-sheldonirwin.yaml
+#
+#secretGenerator:
+#  - name: github-sheldonirwin
+#    files:
+#      - sshPrivateKey=key/id_rsa_argocd
 
 generatorOptions:
   disableNameSuffixHash: true

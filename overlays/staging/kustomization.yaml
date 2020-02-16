@@ -1,6 +1,6 @@
 bases:
   - ../../bases/kudo
 
-namespace: kudo
+namespace: kudo-staging
 
 namePrefix: kudo-
